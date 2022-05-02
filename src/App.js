@@ -1,25 +1,60 @@
-import logo from './logo.svg';
 import './App.css';
+import { Routes, Route, Link } from 'react-router-dom';
+import {
+	Cryptocurrencies,
+	CryptoDetail,
+	Exchanges,
+	Homepage,
+	Navbar,
+	News,
+} from './components';
+import { Layout, Typography, Space } from 'antd';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className='app'>
+			<div className='navbar'>
+				<Navbar />
+			</div>
+			<div className='main'>
+				<Layout>
+					<div className='routers'>
+						<Routes>
+							<Route path='/' element={<Homepage />}></Route>
+							<Route
+								path='/exchanges'
+								element={<Exchanges />}
+							></Route>
+							<Route
+								path='/cryptocurrencies'
+								element={<Cryptocurrencies />}
+							></Route>
+							<Route
+								path='/crypto/:coinId'
+								element={<CryptoDetail />}
+							></Route>
+							<Route path='/news' element={<News />}></Route>
+						</Routes>
+					</div>
+				</Layout>
+				<div className='footer'>
+					<Typography.Title
+						level={5}
+						style={{ color: 'white', textAlign: 'center' }}
+					>
+						Cryptocurrency <br />
+						All rights reserved
+					</Typography.Title>
+					<Space>
+						<Link to='/'>Home</Link>
+						<Link to='/cryptocurrencies'>Cryptocurrencies</Link>
+						<Link to='/exchanges'>Exchanges</Link>
+						<Link to='/news'>News</Link>
+					</Space>
+				</div>
+			</div>
+		</div>
+	);
 }
 
 export default App;

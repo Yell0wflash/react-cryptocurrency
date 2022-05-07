@@ -1,12 +1,9 @@
-import { Button, Menu, Typography, Avatar } from 'antd';
-import { Link } from 'react-router-dom';
 import {
-	HomeOutlined,
-	MoneyCollectOutlined,
-	BulbOutlined,
-	FundOutlined,
-	MenuOutlined,
+	FundOutlined, HomeOutlined,
+	MoneyCollectOutlined
 } from '@ant-design/icons';
+import { Avatar, Menu, Typography } from 'antd';
+import { Link } from 'react-router-dom';
 import icon from '../images/cryptocurrency.png';
 
 const Navbar = () => {

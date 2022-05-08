@@ -2,12 +2,12 @@ import { Avatar, Card, Col, Row, Select, Typography } from 'antd';
 import moment from 'moment';
 import { useState } from 'react';
 import { Loader } from '../components';
+import defaultImage from '../images/default-image.png';
 import { useGetCryptosQuery } from '../services/cryptoApi';
 import { useGetCryptoNewsQuery } from '../services/cryptoNewsApi';
 
 const { Text, Title } = Typography;
 const { Option } = Select;
-const demoImage = process.env.REACT_APP_DEFAULT_IMAGE;
 
 const News = ({ simplified }) => {
 	const [newsCategory, setNewsCategory] = useState('Cryptocurrency');
@@ -63,7 +63,7 @@ const News = ({ simplified }) => {
 									}}
 									src={
 										news?.image?.thumbnail?.contentUrl ||
-										demoImage
+										defaultImage
 									}
 									alt=''
 								/>
@@ -76,7 +76,7 @@ const News = ({ simplified }) => {
 									<Avatar
 										src={
 											news.provider[0]?.image?.thumbnail
-												?.contentUrl || demoImage
+												?.contentUrl || defaultImage
 										}
 										alt=''
 									/>

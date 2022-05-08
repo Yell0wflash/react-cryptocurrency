@@ -1,6 +1,7 @@
 import { Avatar, Card, Col, Row, Select, Typography } from 'antd';
 import moment from 'moment';
 import { useState } from 'react';
+import { Loader } from '../components';
 import { useGetCryptosQuery } from '../services/cryptoApi';
 import { useGetCryptoNewsQuery } from '../services/cryptoNewsApi';
 
@@ -15,7 +16,7 @@ const News = ({ simplified }) => {
 		newsCategory,
 		count: simplified ? 6 : 12,
 	});
-	if (!cryptoNews?.value) return 'Loading...';
+	if (!cryptoNews?.value) return <Loader />;
 
 	return (
 		<Row gutter={[24, 24]}>
@@ -35,7 +36,7 @@ const News = ({ simplified }) => {
 					>
 						<Option value='Cryptocurrency'>Cryptocurrency</Option>
 						{data?.data?.coins?.map(currency => (
-							<Option value={currency.name}>
+							<Option value={currency.name} key={currency.name}>
 								{currency.name}
 							</Option>
 						))}

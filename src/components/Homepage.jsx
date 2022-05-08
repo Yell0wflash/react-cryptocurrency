@@ -1,18 +1,16 @@
 import { Col, Row, Statistic, Typography } from 'antd';
 import millify from 'millify';
 import { Link } from 'react-router-dom';
-import { Cryptocurrencies, News } from '../components';
-import { useGetCryptosQuery } from '../services/cryptoApi';
+import { Cryptocurrencies, Loader, News } from '../components';
+import { useGetCryptoGlobalStatsQuery } from '../services/cryptoApi';
 
 const { Title } = Typography;
 
 const Homepage = () => {
-	const { data, isFetching } = useGetCryptosQuery(10);
-	const globalStats = data?.data?.stats;
+	const { data, isFetching } = useGetCryptoGlobalStatsQuery();
+	const globalStats = data?.data;
 
-	if (isFetching) {
-		return 'Loading...';
-	}
+	if (isFetching) return <Loader />;
 
 	return (
 		<>
@@ -24,7 +22,9 @@ const Homepage = () => {
 					<Statistic
 						title='Total Cryptocurrencies'
 						value={
-							globalStats?.total ? millify(globalStats.total) : 0
+							globalStats?.totalCoins
+								? millify(globalStats.totalCoins)
+								: 0
 						}
 					/>
 				</Col>
@@ -71,7 +71,7 @@ const Homepage = () => {
 			</Row>
 			<div className='home-heading-container'>
 				<Title level={2} className='home-title'>
-					Top 10 Cryptocurrencies in the world
+					Top 8 Cryptocurrencies in the world
 				</Title>
 				<Title level={3} className='show-more'>
 					<Link to='/cryptocurrencies'>Show more</Link>

@@ -45,15 +45,20 @@ const News = ({ simplified }) => {
 			)}
 			{cryptoNews?.value?.map((news, index) => (
 				<Col key={index} xs={24} sm={12} lg={8}>
-					<Card hoverable className='news-card'>
-						<a href={news.url} target='_blank' rel='noreferrer'>
+					<a
+						href={news.url}
+						target='_blank'
+						rel='noreferrer'
+						className='news-link'
+					>
+						<Card hoverable className='news-card'>
 							<div className='news-image-container'>
 								<Title className='news-title' level={4}>
 									{news.name}
 								</Title>
 								<img
 									style={{
-										maxWidth: '200px',
+										maxWidth: '100px',
 										maxHeight: '100px',
 									}}
 									src={
@@ -63,10 +68,8 @@ const News = ({ simplified }) => {
 									alt=''
 								/>
 							</div>
-							<p>
-								{news.description.length > 100
-									? `${news.description.substring(0, 100)}...`
-									: news.description}
+							<p className='news-description'>
+								{news.description}
 							</p>
 							<div className='provider-container'>
 								<div>
@@ -87,8 +90,8 @@ const News = ({ simplified }) => {
 										.fromNow()}
 								</Text>
 							</div>
-						</a>
-					</Card>
+						</Card>
+					</a>
 				</Col>
 			))}
 		</Row>

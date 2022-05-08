@@ -292,15 +292,45 @@ a:hover {
 .select-news {
 	width: 180px;
 }
+.news-link {
+	display: inline-block;
+	height: 100%;
+}
+
+.news-card .ant-card-body {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
 .news-card {
+	display: flex;
 	min-height: 300px !important;
 }
+
 .news-image-container {
+	column-gap: 10px;
 	display: flex !important;
 	justify-content: space-between !important;
 }
+
 .news-title {
 	width: 70%;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-word;
+}
+
+.news-description {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-word;
 }
 
 .news-image-container .img {

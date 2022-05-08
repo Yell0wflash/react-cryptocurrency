@@ -108,7 +108,7 @@ const CryptoDetail = () => {
 		<Col className='coin-detail-container'>
 			<Col className='coin-heading-container'>
 				<Title level={2} className='coin-name'>
-					{cryptoDetail.name} ({cryptoDetail.slug}) Price
+					{cryptoDetail.name} ({cryptoDetail.symbol}) Price
 				</Title>
 				<p>
 					{cryptoDetail.name} live price in US Dollar (USD). View

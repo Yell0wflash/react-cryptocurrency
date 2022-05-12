@@ -1,4 +1,4 @@
-# Cryptocurrency
+# Cryptocurrency Website
 This website shows real-time prices of cryptocurrencies using the Rapid API.
 
 ![Web's preview](./public/banner.png)

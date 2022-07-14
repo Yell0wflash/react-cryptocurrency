@@ -53,12 +53,15 @@ a:hover {
 	align-items: center;
 	width: 100%;
 }
-.logo {
+
+.logo-container .logo {
 	margin: 0 0 0 15px;
 }
+
 .logo a {
 	color: white;
 }
+
 .menu-control-container {
 	display: none !important;
 	position: absolute !important;
@@ -282,10 +285,13 @@ a:hover {
 	.coin-detail-container {
 		margin: 0;
 	}
-}
-@media screen and (max-width: 500px) {
+
 	.heading {
 		margin-top: 20px;
+	}
+
+	.logo-container .logo {
+		font-size: 25px;
 	}
 }
 
